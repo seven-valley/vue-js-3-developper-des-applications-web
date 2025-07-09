@@ -42,7 +42,76 @@ app.use(router)
 app.mount('#app')
 ```
 
-## Nav.vue
-```html
-   <RouterLink to="/" exact-active-class="active"> Home</RouterLink>
+## App.vue
+```vue
+<script setup>
+import Nav from './components/Nav.vue'
+import Footer from './components/Footer.vue'
+</script>
+
+<template>
+    <Nav />
+        <router-view />
+    <Footer />
+</template>
+
 ```
+
+
+## About.vue
+``` vue
+<template>
+  
+<div class="container">
+    <h1>About</h1>
+</div> 
+</template>
+
+```
+## Home.vue
+```vue
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const go =(id)=>{
+    router.push({ name: 'Modifier', params: { id } })
+  // or: router.push(`/mofier/${id}`)
+}
+</script>
+
+<template>
+<div class="container">
+    <h1>Home</h1>
+    <button @click="go(123)">GO</button>
+</div> 
+</template>
+```
+
+
+## Nav.vue
+```vue
+<template>
+   <RouterLink to="/" exact-active-class="active"> Home</RouterLink>
+|
+    <RouterLink to="/about" exact-active-class="active"> About</RouterLink>
+</template>
+```
+
+## Produit.vue
+```vue
+<script setup>
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const produitId = route.params.id
+</script>
+
+<template>
+<div class="container">
+    <h1>Modifier</h1>
+
+     <h2>Produit ID: {{ produitId }}</h2>
+</div> 
+</template>

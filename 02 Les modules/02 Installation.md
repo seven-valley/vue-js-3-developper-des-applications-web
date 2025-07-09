@@ -3,7 +3,7 @@ https://vuejs.org/guide/quick-start.html
 
 
 ## création du rèpertoire pour les projets Vue
-On revient à la racine <code>c:<code>
+On revient à la racine <code>c:</code>
 ```
 cd\
 ```
